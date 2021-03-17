@@ -10,25 +10,6 @@ public class ProxyTest {
         // 完全从多态的角度也能想到执行的实际上是 RealTeacher 的 teach() 方法
         teacher.teach();
 
-        System.out.println(teacher.getClass().getSuperclass());//输出是class java.lang.reflect.Proxy
-
-        Class<?>[] interfaces = teacher.getClass().getInterfaces();
-
-        for(Class<?> i : interfaces){
-            System.out.println(i);// 输出是interface Teacher
-        }
-
-        Method[] methods = teacher.getClass().getDeclaredMethods();
-
-        for (Method method : methods) {
-            System.out.println(method);
-            // 树池是：
-            // public final boolean com.sun.proxy.$Proxy0.equals(java.lang.Object)
-            // public final java.lang.String com.sun.proxy.$Proxy0.toString()
-            // public final int com.sun.proxy.$Proxy0.hashCode()
-            // public final void com.sun.proxy.$Proxy0.teach()
-
-        }
     }
     public static Object getProxy(Object target) throws Throwable {
 
